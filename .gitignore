@@ -1,0 +1,32 @@
+
+# Ignore compiled files
+*.swp
+*.swo
+*.tmp
+
+# Ignore backup files
+*~
+
+# Ignore session files
+Session.vim
+Session-*
+
+# Ignore undo files
+*.un~
+*.un~
+
+# Ignore Neovim plugin folders (optional)
+plugged/
+site/
+pack/
+
+# Ignore files related to language servers (optional)
+nvim/lsp_servers/
+
+nvim/pack
+kitty/local.conf
+kitty/local_color.conf
+i3/polybar/local
+bspwm/bspwmrc.local
+lazygit/*
+!lazygit/config.yml
