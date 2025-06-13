@@ -45,6 +45,7 @@ return {
 				"sqlls",
 				"tailwindcss",
 				"yamlls",
+				"gopls",
 			},
 			automatic_installation = true,
 			handlers = {
@@ -69,10 +70,17 @@ return {
 						settings = {
 							Lua = {
 								diagnostics = {
-									globals = { "vim" },
+									globals = { "vim", "require" },
 								},
 								completion = {
 									callSnippet = "Replace",
+								},
+								workspace = {
+									library = vim.api.nvim_get_runtime_file(),
+									checkThirdParty = false,
+								},
+								telemetry = {
+									enable = false,
 								},
 							},
 						},
