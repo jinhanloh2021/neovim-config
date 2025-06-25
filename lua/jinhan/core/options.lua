@@ -1,6 +1,8 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt -- for conciseness
+local fn = vim.fn
+local api = vim.api
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
@@ -35,6 +37,16 @@ opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or 
 
 -- clipboard
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+
+-- use windows clip.exe with yank
+if fn.has('wsl') == 1 then
+  api.nvim_create_autocmd('TextYankPost', {
+  group = api.nvim_create_augroup('Yank', { clear = true }),
+  callback = function()
+    fn.system('clip.exe', fn.getreg('"'))
+    end,
+  })
+end
 
 -- split windows
 opt.splitright = true -- split vertical window to the right

@@ -42,7 +42,7 @@ return {
 				"pyright",
 				"rust_analyzer",
 				"solang",
-				"sqlls",
+				"sqls",
 				"tailwindcss",
 				"yamlls",
 				"gopls",
