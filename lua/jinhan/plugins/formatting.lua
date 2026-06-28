@@ -23,17 +23,19 @@ return {
 				go = { "gofumpt" },
 			},
 			format_on_save = {
-				lsp_fallback = true,
+				lsp_format = "fallback",
 				async = false,
-				timeout_ms = 1000,
+        timeout_ms = 3000,
 			},
 		})
 
+		vim.keymap.set("n", "<C-S-s>", "<cmd>noautocmd w<CR>", { desc = "Save without formatting" })
+
 		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
 			conform.format({
-				lsp_fallback = true,
+				lsp_format = "fallback",
 				async = false,
-				timeout_ms = 1000,
+        timeout_ms = 3000,
 			})
 		end, { desc = "Format file or range (in visual mode)" })
 	end,

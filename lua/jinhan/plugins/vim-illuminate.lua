@@ -2,7 +2,8 @@ return {
 	"RRethy/vim-illuminate",
 	-- default configuration
 	config = function()
-		require("illuminate").configure({
+		local illuminate = require("illuminate")
+		illuminate.configure({
 			-- providers: provider used to get references in the buffer, ordered by priority
 			providers = {
 				"lsp",
@@ -58,5 +59,8 @@ return {
 			-- case_insensitive_regex: sets regex case sensitivity
 			case_insensitive_regex = false,
 		})
+
+		vim.keymap.set("n", "<M-n>", illuminate.goto_next_reference, { desc = "Next reference" })
+		vim.keymap.set("n", "<M-p>", illuminate.goto_prev_reference, { desc = "Prev reference" })
 	end,
 }

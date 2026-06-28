@@ -60,3 +60,7 @@ opt.scrolloff = 10
 
 -- update time for local-highlight plugin. Default is 4000
 opt.updatetime = 100
+
+-- cursor: use a blending cursor so the character underneath stays visible
+opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor/lCursor,r-cr:hor20,o:hor50"
+vim.api.nvim_set_hl(0, "Cursor", { fg = "bg", bg = "fg", blend = 0 })

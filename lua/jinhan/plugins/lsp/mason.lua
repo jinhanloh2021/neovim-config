@@ -45,6 +45,7 @@ return {
 				"tailwindcss",
 				"yamlls",
 				"gopls",
+				"ts_ls",
 			},
 			automatic_installation = true,
 			handlers = {
@@ -75,7 +76,7 @@ return {
 									callSnippet = "Replace",
 								},
 								workspace = {
-									library = vim.api.nvim_get_runtime_file(),
+									library = vim.api.nvim_get_runtime_file("", true),
 									checkThirdParty = false,
 								},
 								telemetry = {
