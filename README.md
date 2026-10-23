@@ -86,7 +86,7 @@ On first launch, lazy.nvim will auto-install itself, then install all plugins. T
     │   ├── init.lua                  # Loads core modules
     │   ├── options.lua               # Neovim options
     │   ├── keymaps.lua               # General keymaps
-    │   └── api.lua                   # Autocommands & :Claude command
+    │   └── api.lua                   # Autocommands & :Claude / :Term commands
     ├── lazy.lua                      # lazy.nvim bootstrap
     └── plugins/
         ├── init.lua                  # Foundation plugins (plenary, tmux-navigator)
@@ -106,7 +106,7 @@ On first launch, lazy.nvim will auto-install itself, then install all plugins. T
         ├── lualine.lua               # Status line
         ├── bufferline.lua            # Tab line
         ├── indent-blankline.lua      # Indentation guides
-        ├── markdown-preview.lua      # Live markdown preview in browser
+        ├── render-markdown.lua           # Inline markdown rendering in terminal
         ├── scrollbar.lua             # Scrollbar with diagnostics
         ├── vim-illuminate.lua        # Highlight word under cursor
         ├── vim-maximizer.lua         # Maximize/restore splits
@@ -124,7 +124,7 @@ On first launch, lazy.nvim will auto-install itself, then install all plugins. T
 | Leader key    | `Space`                                           |
 | Line numbers  | Relative + absolute on cursor line                |
 | Tabs          | 2 spaces                                          |
-| Line wrap     | Off                                               |
+| Line wrap     | Off (on for markdown)                             |
 | Search        | Case-insensitive (smart case when uppercase used) |
 | Clipboard     | System clipboard                                  |
 | Swapfile      | Disabled                                          |
@@ -200,9 +200,9 @@ On first launch, lazy.nvim will auto-install itself, then install all plugins. T
 
 ### Markdown
 
-| Plugin                                                                   | Description                                                 |
-| ------------------------------------------------------------------------ | ----------------------------------------------------------- |
-| [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim) | Live markdown preview in the browser via `:MarkdownPreview` |
+| Plugin                                                                                          | Description                                                          |
+| ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)            | Inline markdown rendering in the terminal — headings, code blocks, checkboxes, lists |
 
 ### Utilities
 
@@ -340,11 +340,12 @@ Inside Telescope: `<C-k>`/`<C-j>` to navigate, `<C-q>` to send to quickfix.
 | `<M-n>` | Normal | Jump to next reference of word under cursor     |
 | `<M-p>` | Normal | Jump to previous reference of word under cursor |
 
-### Claude CLI
+### Claude CLI & Terminal
 
 | Command   | Action                                |
 | --------- | ------------------------------------- |
 | `:Claude` | Open Claude CLI in a new tab terminal |
+| `:Term`   | Open a terminal in a new tab          |
 
 ## WSL Support
 
